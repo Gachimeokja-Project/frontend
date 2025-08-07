@@ -1,6 +1,6 @@
 import Sidebar from "@/components/Sidebar";
 
-export default function () {
+export default function Mypage() {
   return (
     <div>
       <Sidebar />
