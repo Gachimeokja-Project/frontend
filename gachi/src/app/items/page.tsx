@@ -1,6 +1,6 @@
 import Sidebar from "@/components/Sidebar";
 
-export default function () {
+export default function Items() {
   return (
     <div>
       <Sidebar />
