@@ -3,7 +3,7 @@ import MypageSidebar from "@/components/MypageSidebar";
 import Sidebar from "@/components/Sidebar";
 import { useState } from "react";
 
-export default function () {
+export default function Mypage() {
   const [menuItemClick, setMenuItemClick] = useState<string>();
   return (
     <div>
