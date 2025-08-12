@@ -35,7 +35,6 @@ const KakaoRedirectHandler = () => {
     if (code) {
       console.log("카카오로부터 받은 인가 코드:", code);
 
-      // 백엔드 API 주소
       const backendApiUrl = "http://localhost:8080/auth/kakao/callback";
 
       axios
@@ -43,12 +42,22 @@ const KakaoRedirectHandler = () => {
         .then((response) => {
           console.log("백엔드로부터 로그인 성공 응답:", response.data);
 
-          router.push("/");
+          const { accessToken, refreshToken } = response.data;
+
+          // accessToken 저장
+          localStorage.setItem("accessToken", accessToken);
+
+          if (refreshToken) {
+            // 이미 가입한 사용자 → 홈으로 이동
+            router.push("/");
+          } else {
+            // 신규 사용자 → 회원가입 페이지로 이동
+            router.push("/signup");
+          }
         })
         .catch((error) => {
           console.error("백엔드 통신 중 에러 발생:", error);
           alert("로그인에 실패했습니다.");
-
           router.push("/");
         });
     } else {

@@ -46,7 +46,7 @@ const MemberButtonContainer = styled.div`
 const MemberButtonText = styled.div`
   padding: 8px 15px;
   cursor: pointer;
-  font-weight: bold; /* '곰돌이 님' 텍스트를 굵게 */
+  font-weight: bold;
 `;
 
 // Interfaces
@@ -129,7 +129,7 @@ const Sidebar: React.FC = () => {
       <ButtonGroup>
         <RouterButton text="식사 공구" onClick={handleMealClick} />
         <RouterButton text="물품 공구" onClick={handleItemClick} />
-        <MemberButton memberName="곰돌이 님" />
+        <MemberButton memberName="김도현 님" />
       </ButtonGroup>
     </HeaderContainer>
   );
