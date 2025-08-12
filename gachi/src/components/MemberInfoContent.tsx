@@ -71,11 +71,11 @@ const MemberInfoContent = () => {
 
   // Dummy user data
   const userData = {
-    name: "홍길동",
+    name: "안지민",
     major: "컴퓨터공학전공",
-    studentId: "202412345678",
+    studentId: "2024112794",
     email: "dongguk@gmail.com",
-    birthdate: "1900.01.01",
+    birthdate: "2004.04.19",
   };
 
   const handleSubmit = (e: any) => {
