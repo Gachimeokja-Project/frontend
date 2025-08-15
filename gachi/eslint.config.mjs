@@ -19,4 +19,4 @@ const eslintConfig = [
   },
 ];
 
-export default eslintConfig;
+export default eslintConfig; // 수정 완
