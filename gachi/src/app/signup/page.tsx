@@ -87,21 +87,20 @@ const SignUpPage = () => {
       return;
     }
 
-    const authImgUrl =
-      "https://cdn.donggukmedia.com/news/photo/202103/40504_10264_390.jpg";
+    const authImgUrl = "";
 
     const requestBody = {
       fullName: nickname,
-      email,
-      phoneNumber,
+      email: email,
+      phoneNumber: phoneNumber,
       birthdate: birthDate,
       authImgUrl,
-      nickname,
+      nickname: nickname,
     };
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_LINK}/api/v1/users/signup`,
+        `${process.env.NEXT_PUBLIC_API_LINK}/users/signup`,
         {
           method: "POST",
           headers: {
@@ -113,7 +112,6 @@ const SignUpPage = () => {
       );
 
       if (!res.ok) {
-        // 응답 본문이 JSON일 수도 아닐 수도 있어서 안전하게 처리
         const text = await res.text();
         let errorMessage = "알 수 없는 오류";
 
@@ -121,7 +119,6 @@ const SignUpPage = () => {
           const errorData = JSON.parse(text);
           errorMessage = errorData.message || errorMessage;
         } catch {
-          // JSON 파싱 실패 시 그냥 텍스트 그대로 사용
           errorMessage = text || errorMessage;
         }
 
