@@ -31,11 +31,11 @@ const KakaoRedirectHandler = () => {
 
   useEffect(() => {
     const code = searchParams.get("code");
-
+    const API_LINK = process.env.NEXT_PUBLIC_API_LINK;
     if (code) {
       console.log("카카오로부터 받은 인가 코드:", code);
 
-      const backendApiUrl = "http://localhost:8080/auth/kakao/callback";
+      const backendApiUrl = `http://localhost:8080/api/v1/auth/kakao/callback`;
 
       axios
         .post(backendApiUrl, { code })
@@ -44,7 +44,6 @@ const KakaoRedirectHandler = () => {
 
           const { accessToken, refreshToken } = response.data;
 
-          // accessToken 저장
           localStorage.setItem("accessToken", accessToken);
 
           if (refreshToken) {
